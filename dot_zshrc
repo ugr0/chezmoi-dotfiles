@@ -18,6 +18,7 @@ alias view="nvim -R"
 
 alias ls='lsd'
 alias lzd='lazydocker'
+alias lzg='lazygit'
 
 # -------------------
 # zshのカスタマイズ
