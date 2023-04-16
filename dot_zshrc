@@ -1,12 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
-# export GOPATH=$HOME/go
-# export PATH=$PATH:$GOPATH/bin
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
-
 # -------------
 # aliasの設定
 # -------------
@@ -17,8 +11,9 @@ alias vim="nvim"
 alias view="nvim -R"
 
 alias ls='lsd'
-alias lzd='lazydocker'
-alias lzg='lazygit'
+alias ld='lazydocker'
+alias lg='lazygit'
+alias cz='chezmoi'
 
 # -------------------
 # zshのカスタマイズ
