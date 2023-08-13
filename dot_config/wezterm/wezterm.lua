@@ -3,8 +3,8 @@ local wezterm = require("wezterm")
 local config = {
     -- design
     color_scheme = "GitHub Dark",
-    window_background_opacity = 0.7,
-    text_background_opacity = 0.7,
+    window_background_opacity = 0.9,
+    text_background_opacity = 0.9,
     inactive_pane_hsb = {
         hue = 1.0,
         saturation = 1.0,
