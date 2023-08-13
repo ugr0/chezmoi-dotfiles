@@ -4,6 +4,9 @@ add_newline = true
 # ファイルをスキャンする際のタイムアウト時間
 scan_timeout = 10
 
+[golang]
+symbol = 'ʕ◔ϖ◔ʔ '
+
 # 記号の設定
 [character]
 # old settings
