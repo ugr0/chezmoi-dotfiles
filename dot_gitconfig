@@ -1,8 +1,27 @@
 [user]
 	name = ugr0
 	email = yujiro.takahashi0912@gmail.com
+	signingKey = F2F393F1016A920A
 [core]
 	quotepath = false
 	editor = nvim
+  pager = delta
 [init]
 	defaultBranch = main
+[credential]
+  helper =
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[commit]
+	gpgsign = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default

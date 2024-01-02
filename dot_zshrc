@@ -11,6 +11,8 @@ alias vim="nvim"
 alias view="nvim -R"
 
 alias ls='lsd'
+alias cat='bat'
+
 alias ld='lazydocker'
 alias lg='lazygit'
 alias cz='chezmoi'
@@ -76,21 +78,27 @@ zinit light zsh-users/zsh-autosuggestions
 # シンタックスハイライト
 zinit light zdharma/fast-syntax-highlighting
 
+# fzfでghqで管理しているリポジトリをフィルター
+function fzf-src () {
+  local selected_dir=$(ghq list -p | fzf --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N fzf-src
+bindkey '^]' fzf-src
+
 # -------------------
 # starshipの設定
 # -------------------
 eval "$(starship init zsh)"
 
-# ----------------------------
-# Volta(nodeバージョン管理)
-# ----------------------------
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
 # -----------
-# pythonのパス
+# rye
 # -----------
-export PATH=$PATH:$HOME/Library/Python/3.8/bin
+source "$HOME/.rye/env"
 
 # -----------
 # phpのパス
@@ -98,6 +106,28 @@ export PATH=$PATH:$HOME/Library/Python/3.8/bin
 export PATH="/usr/local/opt/php@8.1/bin:$PATH"
 export PATH="/usr/local/opt/php@8.1/sbin:$PATH"
 
+# -----------------
+# zig
+# -----------------
+export ZVM_INSTALL="$HOME/.zvm/self"
+export PATH="$PATH:$HOME/.zvm/bin"
+export PATH="$PATH:$ZVM_INSTALL/"
+
+# ----------
+# GPG
+# ----------
+export GPG_TTY=${TTY}
+
+# ---------
+# direnv
+# --------
+export EDITOR="nvim"
+eval "$(direnv hook zsh)"
+
+# ------------
+# rtx
+# ------------
+eval "$(rtx activate zsh)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
