@@ -129,5 +129,15 @@ eval "$(direnv hook zsh)"
 # ------------
 eval "$(rtx activate zsh)"
 
+# ------------
+# zoxide
+# ------------
+eval "$(zoxide init zsh)"
+
+# ------------
+# broot
+# ------------
+source /Users/yu_takahashi/.config/broot/launcher/bash/br
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
