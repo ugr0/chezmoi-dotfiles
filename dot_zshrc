@@ -17,6 +17,8 @@ alias ld='lazydocker'
 alias lg='lazygit'
 alias cz='chezmoi'
 
+alias rm='trash-put'
+
 # -------------------
 # zshのカスタマイズ
 # -------------------
