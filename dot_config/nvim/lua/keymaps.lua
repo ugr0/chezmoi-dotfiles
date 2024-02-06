@@ -4,10 +4,16 @@ local term_opts = { silent = true }
 --local keymap = vim.keymap
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- leader key
+vim.api.nvim_set_var('mapleader', '\\')
+
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
 
 -- Modes
 --   normal_mode = 'n',
@@ -49,12 +55,6 @@ keymap("n", "dw", 'vb"_d', opts)
 keymap("n", "<Space>h", "^", opts)
 keymap("n", "<Space>l", "$", opts)
 
--- ;でコマンド入力( ;と:を入れ替)
-keymap("n", ";", ":", opts)
-
--- 行末までのヤンクにする
-keymap("n", "Y", "y$", opts)
-
 -- <Space>q で強制終了
 keymap("n", "<Space>q", ":<C-u>q!<Return>", opts)
 
@@ -62,9 +62,6 @@ keymap("n", "<Space>q", ":<C-u>q!<Return>", opts)
 keymap("n", "<Esc><Esc>", ":<C-u>set nohlsearch<Return>", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode
-keymap("i", "jk", "<ESC>", opts)
-
 -- コンマの後に自動的にスペースを挿入
 keymap("i", ",", ",<Space>", opts)
 
@@ -78,3 +75,4 @@ keymap("v", "v", "$h", opts)
 
 -- 0番レジスタを使いやすくした
 keymap("v", "<C-p>", '"0p', opts)
+

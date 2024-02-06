@@ -1,3 +1,6 @@
+require 'format'
+require 'status'
+
 local wezterm = require("wezterm")
 
 local config = {
@@ -10,6 +13,8 @@ local config = {
         saturation = 1.0,
         brightness = 1.0,
     },
+
+    window_decorations = "RESIZE",
 
     -- set font
     font = wezterm.font 'FiraCode Nerd Font',
@@ -49,7 +54,7 @@ local config = {
         { key = "+", mods = "CTRL",         action = "IncreaseFontSize" },
         { key = "-", mods = "CTRL",         action = "DecreaseFontSize" },
 
-        { key = "n", mods="SHIFT|CTRL",     action="ToggleFullScreen" },
+        { key = "f", mods="CTRL|CMD",     action="ToggleFullScreen" },
     },
 }
 

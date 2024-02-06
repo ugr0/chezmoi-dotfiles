@@ -128,9 +128,9 @@ export EDITOR="nvim"
 eval "$(direnv hook zsh)"
 
 # ------------
-# rtx
+# mise
 # ------------
-eval "$(rtx activate zsh)"
+eval "$(mise activate zsh)"
 
 # ------------
 # zoxide
@@ -141,6 +141,8 @@ eval "$(zoxide init zsh)"
 # broot
 # ------------
 source /Users/yu_takahashi/.config/broot/launcher/bash/br
+
+source "$HOME/.openai_key.zsh"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
