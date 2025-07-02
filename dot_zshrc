@@ -1,6 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # -------------
 # aliasの設定
 # -------------
@@ -68,6 +67,8 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
+zinit load atuinsh/atuin
+
 ### End of Zinit's installer chunk
 
 zstyle ':completion:*:default' menu select=2
@@ -76,8 +77,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # ファイル補完候補に色を付ける
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# 補完
-zinit light zsh-users/zsh-autosuggestions
 # シンタックスハイライト
 zinit light zdharma/fast-syntax-highlighting
 
@@ -97,11 +96,6 @@ bindkey '^]' fzf-src
 # starshipの設定
 # -------------------
 eval "$(starship init zsh)"
-
-# -----------
-# rye
-# -----------
-source "$HOME/.rye/env"
 
 # -----------
 # phpのパス
@@ -144,5 +138,9 @@ source /Users/yu_takahashi/.config/broot/launcher/bash/br
 
 source "$HOME/.openai_key.zsh"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
