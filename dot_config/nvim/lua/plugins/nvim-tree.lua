@@ -1,17 +1,21 @@
-return {
+local M = {
     "nvim-tree/nvim-tree.lua",
     version = "*",
     lazy = false,
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
+        "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("nvim-tree").setup {
-        git = { enable = true, },
-        renderer = {
-            highlight_git = true,
-            icons = { show = { git = true }, },
-        },
-      }
-    end,
 }
+
+M.config = {
+    git = { enable = true, },
+    view = {
+        side = 'right'
+    },
+    renderer = {
+        highlight_git = true,
+        icons = { show = { git = true }, },
+    },
+}
+
+return M
